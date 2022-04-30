@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+
+    <changeSet author="DVI1502" id="1">
+        <sql dbms="postgresql" endDelimiter=";">
+            CREATE SCHEMA IF NOT EXISTS bookstore
+        </sql>
+    </changeSet>
+   
+
+   <!-- 
+       с таким подходом не получается инкрементальные изменения сделать
+       получается все развернуть только в чистую БД
+       т.е. сначала, а за тем 
+        drop table if exists databasechangelog; 
+        drop table if exists databasechangeloglock; 
+        drop schema if exists bookstore cascade;
+
+       , а за тем 
+       <includeAll  path="scripts" relativeToChangelogFile="true" errorIfMissingOrEmpty="true" /> 
+
+
+    -->
+
+
+
+    <include file="v.1.0.0/cumulative-changelog.xml" relativeToChangelogFile="true"/>
+    <include file="v.2.0.0/cumulative-changelog.xml" relativeToChangelogFile="true"/>
+
+   <!--
+    <include file="v.1.0.0/cumulative-changelog.xml" relativeToChangelogFile="true"/>
+    <include file="v.2.0.0/cumulative-changelog.xml" relativeToChangelogFile="true"/>
+    -->
+
+</databaseChangeLog>

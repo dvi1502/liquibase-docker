@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <changeSet id="add-tag-1.0.0" author="DVI1502">
+        <tagDatabase tag="v.1.0.0"/>
+    </changeSet>
+
+    <include file="scripts/authors.sql"         relativeToChangelogFile="true"/>
+    <include file="scripts/books.sql"           relativeToChangelogFile="true"/>
+    <include file="scripts/authorship.sql"      relativeToChangelogFile="true"/>
+    <include file="scripts/operations.sql"      relativeToChangelogFile="true"/>
+    <!--
+    <include file="create-table.xml" relativeToChangelogFile="true"/>
+    -->    
+
+</databaseChangeLog>

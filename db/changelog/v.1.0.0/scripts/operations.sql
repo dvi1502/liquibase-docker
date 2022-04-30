@@ -4,7 +4,7 @@
 
 CREATE TABLE bookstore.operations(
     operation_id integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    book_id integer NOT NULL REFERENCES books,
+    book_id integer NOT NULL REFERENCES bookstore.books,
     qty_change integer NOT NULL,
     date_created date NOT NULL DEFAULT current_date
 );

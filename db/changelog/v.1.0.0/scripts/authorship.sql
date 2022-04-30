@@ -3,8 +3,8 @@
 
 
 CREATE TABLE bookstore.authorship(
-    book_id integer REFERENCES books,
-    author_id integer REFERENCES authors,
+    book_id integer REFERENCES bookstore.books,
+    author_id integer REFERENCES bookstore.authors,
     seq_num integer NOT NULL,
     PRIMARY KEY (book_id,author_id)
 );
