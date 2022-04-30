@@ -19,6 +19,7 @@
             CREATE SCHEMA IF NOT EXISTS bookstore
         </sql>
     </changeSet>
+    
 
 
     <includeAll  path="scripts" relativeToChangelogFile="true" errorIfMissingOrEmpty="true" />
