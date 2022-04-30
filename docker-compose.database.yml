@@ -1,0 +1,28 @@
+version: '3.1'
+
+
+services:
+  lobo-db:
+    container_name: lobo-db
+    image: postgres:11-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    volumes:
+      - postgres-lobo-data:/var/lib/postgresql/data
+    networks:
+      lobo-net:
+        ipv4_address: 170.17.0.151
+
+networks:
+  lobo-net:
+    driver: bridge    
+    ipam:
+      config:
+        - subnet: "170.17.0.0/24"
+
+volumes:
+  postgres-lobo-data:
+      

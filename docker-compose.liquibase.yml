@@ -1,0 +1,28 @@
+version: "3.1"
+
+services:
+  lobo-liquibase:
+    container_name: lobo-liquibase
+    image: liquibase/liquibase
+    # command: --url=jdbc:postgresql://lobo-db:5432/postgres?user=postgres&password=postgres --changeLogFile=changelog.xml update
+
+    command: --url=jdbc:postgresql://lobo-db:5432/bookstore?user=postgres&password=postgres --changeLogFile=changelog.xml update
+
+
+    volumes:
+      - ./config/changelog.xml:/liquibase/changelog.xml
+      - ./config/scripts:/liquibase/scripts
+
+    #   - ./config/changelog-v.1.0-cumulative.xml:/liquibase/changelog-v.1.0-cumulative.xml
+    networks:
+      lobo-net:
+        ipv4_address: 170.17.0.152
+
+
+networks:
+  lobo-net:    
+    driver: bridge    
+    ipam:
+      config:
+        - subnet: "170.17.0.0/24"
+
